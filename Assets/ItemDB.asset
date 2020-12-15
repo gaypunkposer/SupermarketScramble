@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf01ef35a57f34d539cee1a413f9b2b6, type: 3}
+  m_Name: ItemDB
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 3421990955960023780, guid: e3d9275b700126b4da5eff0660e5b229, type: 3}
+  - {fileID: 2815086554275208799, guid: d666eeaec1d7358488f5cc04cf4440f1, type: 3}
+  - {fileID: 6047249568825133820, guid: c58a6a456185ba94e9fcf84de6853833, type: 3}
+  - {fileID: 2331115666385112596, guid: de57972406472d743802c4b660ed23e4, type: 3}
+  - {fileID: 1962418294573726845, guid: 981422409856c3d47b45f9b5d4baea9a, type: 3}
+  - {fileID: 5766171920372536429, guid: 60a0835b3e57a4c2d8e255a57d4992f5, type: 3}
+  - {fileID: 962066249777010235, guid: 48486b466283bc04b93ab69afcbd68a2, type: 3}
+  - {fileID: 7117537987025340933, guid: cd82d337f6daf0b4fa36a6d0a1ee18f4, type: 3}
+  - {fileID: 8003752009525932636, guid: e14653b9c5d99ee4384cac4b04718742, type: 3}
+  stats:
+  - friendlyName: Colored Pencils
+    id: art_0
+    value: 3
+    weight: 1
+  - friendlyName: Lotion
+    id: beauty_0
+    value: 2
+    weight: 2
+  - friendlyName: Beauty Cream
+    id: beauty_1
+    value: 10
+    weight: 1
+  - friendlyName: Medicine
+    id: beauty_2
+    value: 5
+    weight: 0.25
+  - friendlyName: Cleaning Spray
+    id: cleaning_0
+    value: 1
+    weight: 1
+  - friendlyName: Candy
+    id: food_0
+    value: 0.25
+    weight: 0.1
+  - friendlyName: Cereal
+    id: food_1
+    value: 0.5
+    weight: 0.25
+  - friendlyName: Data Disk
+    id: tech_0
+    value: 20
+    weight: 3
+  - friendlyName: Data Cube
+    id: tech_1
+    value: 45
+    weight: 7
+  rarities:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    valueMultiplier: 0.5
+  - color: {r: 1, g: 1, b: 0, a: 1}
+    valueMultiplier: 1
+  - color: {r: 0, g: 0, b: 1, a: 1}
+    valueMultiplier: 1.5
+  - color: {r: 0, g: 1, b: 1, a: 1}
+    valueMultiplier: 2
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    valueMultiplier: 2
