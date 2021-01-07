@@ -1,0 +1,1 @@
+*.fbx,*.png,*.jpg,*.mp3,*.wav filter=lfs diff=lfs merge=lfs -text
