@@ -59,6 +59,7 @@ namespace Interactions
         public void ClearInventory()
         {
             _items.Clear();
+            StoredItemWeight = 0;
         }
     }
 }
