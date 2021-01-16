@@ -26,23 +26,23 @@ namespace GameRules.AI.SM.States
         public override SMOutput Run(SMInput input)
         {
             AIInput inpt = (AIInput) input;
-            if (inpt.canSeePlayer && PlayerState.Instance.Suspicion > 0)
+            if (inpt.canSeePlayer && PlayerStatus.Instance.Suspicion > 0)
             {
                 if (!_alerted)
                 {
-                    PlayerState.Instance.UI.Alerts.AddAlert("Security is going to remove you from the store. Run!");
+                    PlayerStatus.Instance.UI.Alerts.AddAlert("Security is going to remove you from the store. Run!");
                     _alerted = true; //Only alert once, until things have died down
                 }
                 
             }
 
-            if (_alerted && Vector3.Distance(transform.position, PlayerState.Instance.Transform.position) <= 2.5f)
+            if (_alerted && Vector3.Distance(transform.position, PlayerStatus.Instance.Transform.position) <= 2.5f)
             {
-                PlayerState.Instance.Fail();
+                PlayerStatus.Instance.Fail();
                 inpt.suspicion = 0;
             }
 
-            return new AIOutput(input, PlayerState.Instance.Transform.position);
+            return new AIOutput(input, PlayerStatus.Instance.Transform.position);
         }
     }
 }

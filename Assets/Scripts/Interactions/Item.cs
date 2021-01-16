@@ -44,7 +44,7 @@ namespace Interactions
         //This needs to be done in Start because the ItemManager loads stats in Awake
         private void Start()
         {
-            stats = GameState.Instance.Items.GetItemStats(id);
+            stats = GameStatus.Instance.Items.GetItemStats(id);
 
             Rigidbody = GetComponent<Rigidbody>();
             Rigidbody.isKinematic = true;
@@ -119,7 +119,7 @@ namespace Interactions
 
         public void Interact()
         {
-            PlayerState.Instance.Hand.InitiateGrabItem();
+            PlayerStatus.Instance.Hand.InitiateGrabItem();
         }
 
         private void UpdateColorOnMesh()
@@ -127,7 +127,7 @@ namespace Interactions
             if (materialID < 0) return;
             if (targetMesh == null)
                 targetMesh = GetComponentInChildren<MeshRenderer>();
-            targetMesh.materials[materialID].SetColor(BaseColor, GameState.Instance.Items.db.rarities[_rarity].color);
+            targetMesh.materials[materialID].SetColor(BaseColor, GameStatus.Instance.Items.db.rarities[_rarity].color);
         }
     }
 }

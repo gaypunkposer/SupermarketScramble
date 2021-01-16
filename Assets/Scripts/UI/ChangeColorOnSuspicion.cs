@@ -19,7 +19,7 @@ namespace UI
         
         private void Update()
         {
-            Color c = Color.Lerp(leastSuspicion, maxSuspicion, PlayerState.Instance.Suspicion / suspicionCap);
+            Color c = Color.Lerp(leastSuspicion, maxSuspicion, PlayerStatus.Instance.Suspicion / suspicionCap);
             _img.color = c;
         }
     }

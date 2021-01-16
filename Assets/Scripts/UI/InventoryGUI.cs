@@ -39,17 +39,17 @@ namespace UI
 
         private void ToggleOff()
         {
-            PlayerState.Instance.FreezeMouse = false;
+            PlayerStatus.Instance.FreezeMouse = false;
             background.SetActive(false);
             _active = false;
         }
         
         private void ToggleOn()
         {
-            PlayerState.Instance.FreezeMouse = true;
+            PlayerStatus.Instance.FreezeMouse = true;
             content.DestroyAllChildren();
             
-            List<Item> items = PlayerState.Instance.Inventory.GetItems();
+            List<Item> items = PlayerStatus.Instance.Inventory.GetItems();
 
             _currentRow = Instantiate(rowPrefab, content).transform;
             
@@ -71,7 +71,7 @@ namespace UI
             }
 
             statText.text =
-                $"Total Weight: {PlayerState.Instance.Inventory.StoredItemWeight}/{PlayerState.Instance.Inventory.maxStorage}\n";/*Total Value: {items.Sum(i => i.stats.value)}";*/
+                $"Total Weight: {PlayerStatus.Instance.Inventory.StoredItemWeight}/{PlayerStatus.Instance.Inventory.maxStorage}\n";/*Total Value: {items.Sum(i => i.stats.value)}";*/
             
             background.SetActive(true);
             _active = true;
@@ -79,8 +79,8 @@ namespace UI
 
         private void SelectItem(Item val)
         {
-            PlayerState.Instance.Inventory.RemoveItem(val);
-            PlayerState.Instance.Hand.RetrieveItem(val);
+            PlayerStatus.Instance.Inventory.RemoveItem(val);
+            PlayerStatus.Instance.Hand.RetrieveItem(val);
             
             ToggleOff();
         }

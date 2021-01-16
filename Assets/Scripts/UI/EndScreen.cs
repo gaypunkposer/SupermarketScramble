@@ -18,7 +18,7 @@ namespace UI
         {
             text.text = $"Stolen item total: {sum}\n" +
                         $"Rent payment: {rent}\n" +
-                        $"Current balance: {PlayerState.Instance.Balance}";
+                        $"Current balance: {PlayerStatus.Instance.Balance}";
             background.SetActive(true);
         }
     }

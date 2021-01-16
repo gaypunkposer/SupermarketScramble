@@ -12,7 +12,7 @@ namespace Movement.States
         {
             MovementInput inpt = (MovementInput) input;
 
-            Vector3 vel = PlayerState.Instance.Transform.TransformDirection(inpt.directionalInput.normalized) * speed;
+            Vector3 vel = PlayerStatus.Instance.Transform.TransformDirection(inpt.directionalInput.normalized) * speed;
             vel -= inpt.lateralVelocity;
             vel.y = -1;
 

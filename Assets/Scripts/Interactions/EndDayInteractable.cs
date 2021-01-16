@@ -23,7 +23,7 @@ namespace Interactions
 
         public void Interact()
         {
-            PlayerState.Instance.Leave();
+            PlayerStatus.Instance.Leave();
         }
     }
 }

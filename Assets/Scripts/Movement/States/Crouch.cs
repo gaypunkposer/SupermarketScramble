@@ -24,7 +24,7 @@ namespace Movement.States
 
         private bool CrouchTouchingRoof()
         {
-            return Physics.SphereCast(PlayerState.Instance.Transform.position, .3f, Vector3.up,
+            return Physics.SphereCast(PlayerStatus.Instance.Transform.position, .3f, Vector3.up,
                 out var info, .95f, 1, QueryTriggerInteraction.Ignore);
         }
     }

@@ -17,7 +17,7 @@ namespace UI
         {
             if (!((MovementInput)input).inventoryToggle) return false;
         
-            PlayerState.Instance.UI.Inventory.Toggle(!PlayerState.Instance.UI.Inventory.Showing);
+            PlayerStatus.Instance.UI.Inventory.Toggle(!PlayerStatus.Instance.UI.Inventory.Showing);
             return false;
         }
     }

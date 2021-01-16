@@ -20,8 +20,8 @@ namespace Movement
             ((MovementInput) output.input).lateralVelocity = _velocity;
             ((MovementOutput) output).velocity = _velocity;
             
-            PlayerState.Instance.CollisionHandler.controller.Move(_velocity * Time.deltaTime);
-            PlayerState.Instance.CollisionHandler.Rigidbody.velocity = _velocity;
+            PlayerStatus.Instance.CollisionHandler.controller.Move(_velocity * Time.deltaTime);
+            PlayerStatus.Instance.CollisionHandler.Rigidbody.velocity = _velocity;
         }
     }
 }

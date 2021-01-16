@@ -25,7 +25,7 @@ namespace GameRules.AI.SM
 
         private bool FindPlayer()
         {
-            var playerPos = PlayerState.Instance.Transform.position;
+            var playerPos = PlayerStatus.Instance.Transform.position;
 
             if (Vector3.Distance(playerPos, headPos.position) > maxDetectDistance)
                 return false;

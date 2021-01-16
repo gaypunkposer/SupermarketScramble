@@ -21,7 +21,7 @@ namespace LevelInteraction
             transform.DestroyAllChildren();
 
             int num = Random.Range(minRarity, maxRarity);
-            GameObject go = GameState.Instance.Items.GetItemWithRarity(overrideID, num);
+            GameObject go = GameStatus.Instance.Items.GetItemWithRarity(overrideID, num);
 
             go.transform.parent = transform;
             go.transform.localRotation = Quaternion.identity;

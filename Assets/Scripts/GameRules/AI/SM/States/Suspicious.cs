@@ -25,7 +25,7 @@ namespace GameRules.AI.SM.States
             AIInput inpt = (AIInput) input;
             
             if (inpt.canSeePlayer)
-                _lastPlayerLoc = PlayerState.Instance.Transform.position;
+                _lastPlayerLoc = PlayerStatus.Instance.Transform.position;
             
             //If we're at the investigation site, or there's no investigation site, decay the sus level
             if (Vector3.Distance(transform.position, _investigationSite) <= investigateDistance ||
@@ -33,7 +33,7 @@ namespace GameRules.AI.SM.States
                 inpt.suspicion = inpt.suspicion > 0 ? inpt.suspicion - decayRate * Time.deltaTime : 0;
 
             //If the player is in sight and being sus, or there's been a noise, or we're still investigating something, return true
-            return inpt.canSeePlayer && PlayerState.Instance.Suspicion > 0 ||
+            return inpt.canSeePlayer && PlayerStatus.Instance.Suspicion > 0 ||
                    inpt.latestObjectOfInterest != null || inpt.suspicion > 0;
         }
 
@@ -53,10 +53,10 @@ namespace GameRules.AI.SM.States
                 _investigationSite = _objPos.position;
             }
             //If player is doing shenanigans in front of the helper, investigate
-            else if (inpt.canSeePlayer && PlayerState.Instance.Suspicion >= minFollowSuspicion)
+            else if (inpt.canSeePlayer && PlayerStatus.Instance.Suspicion >= minFollowSuspicion)
             {
                 _investigationSite = _lastPlayerLoc;
-                inpt.suspicion += PlayerState.Instance.Suspicion * growRate * Time.deltaTime;
+                inpt.suspicion += PlayerStatus.Instance.Suspicion * growRate * Time.deltaTime;
                 //PlayerState.Instance.UI.Alerts.AddAlert("A Helper noticed you do that!");
             }
 

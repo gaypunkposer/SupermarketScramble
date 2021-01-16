@@ -9,7 +9,7 @@ namespace Movement
 
         private void Update()
         {
-            if (!PlayerState.Instance.FreezeMouse)
+            if (!PlayerStatus.Instance.FreezeMouse)
             {
                 var mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 

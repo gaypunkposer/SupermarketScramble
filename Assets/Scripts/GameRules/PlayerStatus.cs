@@ -9,9 +9,9 @@ using UnityEngine;
 
 namespace GameRules
 {
-    public class PlayerState : MonoBehaviour
+    public class PlayerStatus : MonoBehaviour
     {
-        public static PlayerState Instance { get; private set; }
+        public static PlayerStatus Instance { get; private set; }
         
         public SMRunner MovementSM { get; private set; }
         public CollisionHandler CollisionHandler { get; private set; }
@@ -109,13 +109,13 @@ namespace GameRules
         {
             MovementSM.transform.localPosition = Vector3.up;
             MovementSM.transform.localRotation = Quaternion.identity;
-            int rent = GameState.Instance.Rent;
+            int rent = GameStatus.Instance.Rent;
             float sum = Inventory.GetItems().Sum(i =>
-                i.stats.value * GameState.Instance.Items.db.rarities[i.Rarity].valueMultiplier);
+                i.stats.value * GameStatus.Instance.Items.db.rarities[i.Rarity].valueMultiplier);
             Balance += sum - rent;
             UI.EndScreen.Show(rent, sum);
             Inventory.ClearInventory();
-            GameState.Instance.ResetLevel();
+            GameStatus.Instance.ResetLevel();
         }
 
         public void StartNextDay()

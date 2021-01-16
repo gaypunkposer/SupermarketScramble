@@ -33,9 +33,9 @@ namespace Movement
                     break;
             }
 
-            PlayerState.Instance.CollisionHandler.height = height;
-            PlayerState.Instance.CollisionHandler.radius = radius;
-            PlayerState.Instance.CollisionHandler.center = center;
+            PlayerStatus.Instance.CollisionHandler.height = height;
+            PlayerStatus.Instance.CollisionHandler.radius = radius;
+            PlayerStatus.Instance.CollisionHandler.center = center;
         }
     }
 }

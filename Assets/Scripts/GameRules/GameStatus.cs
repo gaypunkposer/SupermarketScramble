@@ -2,9 +2,9 @@
 
 namespace GameRules
 {
-    public class GameState : MonoBehaviour
+    public class GameStatus : MonoBehaviour
     {
-        public static GameState Instance { get; private set; }
+        public static GameStatus Instance { get; private set; }
 
         public int Rent { get; private set; } = 25; //Eventually, have it so that rent increases with each access
         public ItemManager Items { get; private set; }

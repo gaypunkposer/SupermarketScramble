@@ -34,14 +34,14 @@ namespace Interactions
             //Set up animation callbacks
             AnimEventHandler.RegisterHandler("Grab", GrabItem);
             AnimEventHandler.RegisterHandler("Throw", ThrowItem);
-            _cam = PlayerState.Instance.cameraTransform;
+            _cam = PlayerStatus.Instance.cameraTransform;
         }
         
         private void GrabItem()
         {
             if (!_itemLookedAt)
             {
-                PlayerState.Instance.Viewmodel.SetTrigger(CancelHold);
+                PlayerStatus.Instance.Viewmodel.SetTrigger(CancelHold);
                 return;
             }
 
@@ -78,19 +78,19 @@ namespace Interactions
         private void StoreItem()
         {
             if (_heldItem == null) return;
-            if (PlayerState.Instance.Inventory.StoreItem(_heldItem))
+            if (PlayerStatus.Instance.Inventory.StoreItem(_heldItem))
             {
                 _heldItem = null;
-                PlayerState.Instance.Viewmodel.SetTrigger(Store);
+                PlayerStatus.Instance.Viewmodel.SetTrigger(Store);
             }
             else
-                PlayerState.Instance.UI.Alerts.AddAlert("Your inventory is full!");
+                PlayerStatus.Instance.UI.Alerts.AddAlert("Your inventory is full!");
         }
         
         public void RetrieveItem(Item i)
         {
             _itemLookedAt = i;
-            PlayerState.Instance.Viewmodel.SetTrigger(Retrieve);
+            PlayerStatus.Instance.Viewmodel.SetTrigger(Retrieve);
             GrabItem();
         }
 
@@ -103,17 +103,17 @@ namespace Interactions
         public void InitiateGrabItem()
         {
             if (_heldItem != null) return;
-            AnimatorStateInfo info = PlayerState.Instance.Viewmodel.GetCurrentAnimatorStateInfo(1);
+            AnimatorStateInfo info = PlayerStatus.Instance.Viewmodel.GetCurrentAnimatorStateInfo(1);
             if (!info.IsName("Default")) return;
             
-            PlayerState.Instance.Viewmodel.SetTrigger(Pickup);
+            PlayerStatus.Instance.Viewmodel.SetTrigger(Pickup);
         }
         
         public override bool ShouldRunThisState(SMInput input)
         {
             MovementInput inpt = (MovementInput) input;
             if (inpt.interact && _heldItem != null)
-                PlayerState.Instance.Viewmodel.SetTrigger(Throw);
+                PlayerStatus.Instance.Viewmodel.SetTrigger(Throw);
             else if (inpt.store && _heldItem != null)
             {
                 StoreItem(); // Remove when there's an animation for store        
