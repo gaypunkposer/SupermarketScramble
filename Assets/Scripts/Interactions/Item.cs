@@ -39,7 +39,7 @@ namespace Interactions
         private AudioSource _source;
         private LooseChild _parentRel;
         private Collider _col;
-        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+        private static readonly int BaseColor = Shader.PropertyToID("_Color");
 
         //This needs to be done in Start because the ItemManager loads stats in Awake
         private void Start()
