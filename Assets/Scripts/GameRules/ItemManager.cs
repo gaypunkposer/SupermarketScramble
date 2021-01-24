@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Interactions;
 using LevelInteraction;
 using UnityEngine;
@@ -37,6 +38,11 @@ namespace GameRules
 
         public ItemStats GetItemStats(string itemName)
         {
+            if (!_statsDict.ContainsKey(itemName))
+            {
+                Debug.LogError("Invalid ID passed");
+                return new ItemStats();
+            }
             return _statsDict[itemName];
         }
         
