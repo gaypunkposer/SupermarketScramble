@@ -17,7 +17,11 @@ namespace Util
         
         private void LateUpdate()
         {
-            if (!parentObject) return;
+            if (parentObject == null)
+            {
+                enabled = false;
+                return;
+            }
             if (copyPosition)
             {
                 if (localPosition)

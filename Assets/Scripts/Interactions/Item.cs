@@ -90,6 +90,7 @@ namespace Interactions
 
         public void ClearParent()
         {
+            _parentRel.enabled = false;
             _parentRel.parentObject = null;
             _col.isTrigger = false;
         }
@@ -99,6 +100,7 @@ namespace Interactions
         public void SetParent(Transform parent)
         {
             _parentRel.parentObject = parent;
+            _parentRel.enabled = true;
             _col.isTrigger = true;
         }
 

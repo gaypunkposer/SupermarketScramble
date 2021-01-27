@@ -10,7 +10,7 @@ namespace GameRules.AI.SM
         public MeshRenderer faceRenderer;
 
         private Coroutine _transitionFace;
-        private static readonly int FaceParam = Shader.PropertyToID("Vector2_6FF8B282");
+        private static readonly int FaceParam = Shader.PropertyToID("_MainTex");
 
         public int GetPriority()
         {
@@ -21,7 +21,7 @@ namespace GameRules.AI.SM
         {
             if (output.input.state == output.input.previous.state) return;
             
-            Vector4 target = Vector4.zero;
+            Vector2 target = Vector2.zero;
             switch (output.input.state)
             {
                 case Neutral _:
@@ -43,13 +43,13 @@ namespace GameRules.AI.SM
             _transitionFace = StartCoroutine(TransitionFace(target));
         }
 
-        private IEnumerator TransitionFace(Vector4 target)
+        private IEnumerator TransitionFace(Vector2 target)
         {
             float i = 0;
-            Vector4 orig = faceRenderer.material.GetVector(FaceParam);
-            while (i < 1)
+            Vector2 orig = faceRenderer.material.GetTextureOffset(FaceParam);
+            while (i <= 1)
             {
-                faceRenderer.material.SetVector(FaceParam, Vector4.Lerp(orig, target, i));
+                faceRenderer.material.SetTextureOffset(FaceParam, Vector2.Lerp(orig, target, i));
                 i += Time.deltaTime;
                 yield return null;
             }
